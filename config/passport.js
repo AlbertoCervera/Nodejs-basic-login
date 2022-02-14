@@ -7,11 +7,6 @@ const Users = require("../models/users")
 
 passport.use(
     new LocalStrategy(
-        //Por default passport desea un usuario y contraseña
-        // {
-        //     usernameField: "username",
-        //     passwordField: "password"
-        // },
         async (username,password,done) => {
             try{
                 //Esto indica si existe el usuario
