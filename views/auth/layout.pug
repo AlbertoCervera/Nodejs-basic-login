@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.15.4/css/all.css", integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm", crossorigin="anonymous")
+  body
+    nav 
+        .items 
+            ul 
+                li 
+                    a(href="/login") Login 
+                li 
+                    a(href="/register") Register 
+    .container 
+        .formulario 
+            h1=title
+           
+            if locals.mensajes 
+                ul.error_list
+                    each categoria in Object.keys(locals.mensajes)
+                        each error in mensajes[categoria]
+                            li.error=error
+            form(action=action, method="post") 
+                input(type="text",placeholder="Username: ",name="username",value=username)
+                if(registro)
+                    input(type="email", name="email",placeholder="Email: ",value=email)
+                input(type="password", name="password",placeholder="Password: ",value=password)
+                input(type="submit", value=btn)
+
+        block content
